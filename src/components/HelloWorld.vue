@@ -2,10 +2,14 @@
 defineProps<{
   msg: string
 }>()
+
+defineEmits<{
+  click: [number[]]
+}>()
 </script>
 
 <template>
-  <div class="greetings">
+  <div class="greetings" @click="$emit('click', [1, 2, 3, 4, 5])">
     <h1 class="green">{{ msg }}</h1>
     <h3>
       You’ve successfully created a project with
@@ -25,6 +29,10 @@ h1 {
 
 h3 {
   font-size: 1.2rem;
+}
+
+.greetings {
+  background-color: pink;
 }
 
 .greetings h1,
